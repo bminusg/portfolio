@@ -1,0 +1,142 @@
+.slider {
+    position: relative;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) 2fr 5fr;
+    grid-template-areas: "Content Controls Teaser";
+    gap: 20px;
+
+    @media screen and (max-width:768px) {
+        height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "Teaser"
+            "Controls"
+            "Content";
+        grid-template-rows: 1fr 60px 1fr;
+    }
+
+    // CONTENT AREA
+
+    &--content {
+        position: absolute;
+        visibility: hidden;
+
+        &-area {
+            grid-area: Content;
+            position: relative;
+        }
+
+        &-title {
+            margin: 0 0 40px 0;
+            padding: 0 0 20px 0;
+        }
+
+        &-copy {
+            margin: 0 0 20px 0;
+        }
+
+        &-tags {
+
+            .animate--bar {
+                padding: 0;
+
+                &::before {
+                    background-color: @primary-color;
+                }
+            }
+        }
+
+        &-svg {
+            fill: @primary-color;
+            width: 20px;
+            height: 20px;
+            margin: 0 10px 0 0;
+        }
+
+
+
+        &.is--active {
+            visibility: visible;
+        }
+    }
+
+    // CONTROL AREA
+
+    &--control {
+        grid-area: Controls;
+        padding: 0 15px;
+
+        &-btn {
+            flex: 0 0 80px;
+            height: 80px;
+            border: 1px solid #77cca4;
+            cursor: pointer;
+            opacity: 0;
+            transition: all .6s @easeout .4s;
+
+            &[data-dir="next"] {
+                transform: rotate(180deg)
+            }
+
+            &__svg {
+                width: 15px;
+                height: 15px;
+                fill: #77cca4;
+            }
+
+            &.is--active {
+                opacity: 1;
+
+                @media screen and (orientation:landscape) {
+                    &[data-dir="prev"] {
+                        transform: translateY(-40px)
+                    }
+
+                    &[data-dir="next"] {
+                        transform: translateY(40px) rotate(180deg);
+                    }
+                }
+
+            }
+
+            @media screen and (orientation:portrait) {
+                flex: 1 1 60px;
+                height: 60px;
+
+            }
+        }
+    }
+
+    // TEASER AREA
+
+    &--teaser {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateX(100px);
+        transition: all .6s @easeinout;
+        cursor: zoom-in;
+
+        &-area {
+            position: relative;
+            grid-area: Teaser;
+        }
+
+        &.is--active {
+            visibility: visible;
+            transform: translateX(0);
+            opacity: 1;
+
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+
+}
