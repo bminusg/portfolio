@@ -1,7 +1,7 @@
 <template>
   <div class="slider--content" :class="{ 'is--active': project.active }">
     <div
-      class="slider--content-title"
+      class="slider--content-title title"
       :class="{ 'is--active': project.active }"
     >
       <div class="animate--bar" :class="{ 'is--active': project.active }">
@@ -28,7 +28,9 @@
             </svg>
           </div>
           <div class="slider--content-cta">
-            <button class="btn"><small>Show details</small></button>
+            <button class="btn" v-on:click="expand">
+              <small>Show details</small>
+            </button>
           </div>
         </div>
       </div>
@@ -39,6 +41,11 @@
 <script>
 export default {
   name: "Slider-Content",
-  props: ["project"]
+  props: ["project"],
+  methods: {
+    expand: function() {
+      this.$root.$emit("expand", this.project);
+    }
+  }
 };
 </script>

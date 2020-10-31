@@ -1,7 +1,7 @@
 <template>
-  <section id="home" class="home fullscreen flex flex--vcenter">
-    <div class="container home--wrapper flex">
-      <div class="col--6 home--wrapper-whitespace"></div>
+  <section id="home" class="home fullscreen">
+    <div class="container flex">
+      <div class="col--6 home--whitespace"></div>
       <div class="col--6 home--content">
         <span class="home--kicker" v-if="visible">
           Cheers mate.
@@ -14,13 +14,20 @@
           <h1 data-title="code">Frontend<br />Developer</h1>
         </div>
 
-        <div class="home--subline">
-          <button class="btn" v-on:click="anchor('about')">About me</button>
-          <button class="btn" v-on:click="anchor('skills')">Skill set</button>
-          <button class="btn" v-on:click="anchor('projects')">
-            Projects
-          </button>
-        </div>
+        <ul class="home--anchors">
+          <li class="home--anchor" v-on:click="anchor('about')">
+            <svg><use href="#icon--terminal"></use></svg>
+            <span>about</span>
+          </li>
+          <li class="home--anchor" v-on:click="anchor('skills')">
+            <svg><use href="#icon--terminal"></use></svg>
+            <span>skillset</span>
+          </li>
+          <li class="home--anchor" v-on:click="anchor('projects')">
+            <svg><use href="#icon--terminal"></use></svg>
+            <span>projects</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -48,14 +55,40 @@ export default {
 
 <style lang="less" scoped>
 .home {
-  &--wrapper {
-    align-items: center;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 960px) {
+    .container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      flex-direction: column;
+    }
+
+    .col--6 {
+      flex: 1;
+    }
   }
 
   &--kicker {
     color: #77cca4;
     display: block;
     margin: 0 0 20px 0;
+  }
+
+  &--anchor {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+
+    svg {
+      height: 10px;
+      width: 11px;
+      fill: #77cca4;
+      margin: 0 10px 0 0;
+    }
   }
 
   .title {
@@ -103,14 +136,6 @@ export default {
   }
 
   @media screen and (max-width: 1220px) {
-    &--wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-
-      &-whitespace {
-        flex: 3;
-      }
-    }
     &--content {
       flex: 1;
 

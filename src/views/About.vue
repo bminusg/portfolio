@@ -11,18 +11,10 @@
       </transition>
 
       <div class="about col--6">
-        <div class="title" :class="{ 'is--active': visible }">
-          <transition
-            enter-class="title-in"
-            enter-active-class="title-in-active"
-            leave-to-class="title-out"
-            leave-active-class="title-out-active"
-          >
-            <h3 v-if="visible">
-              I've grown with the job
-            </h3>
-          </transition>
-        </div>
+        <h3 class="title" :class="{ 'is--active': visible }">
+          I've grown with the job
+        </h3>
+
         <p>
           Since 2010 I am creating Web Designs for different employers.
           Advertising was the most field of application. Adapting existing key
@@ -34,14 +26,9 @@
           and since then I am creating web applications with a good user
           experience focus.
         </p>
-        <transition
-          enter-class="title-in"
-          enter-active-class="title-in-active"
-          leave-to-class="title-out"
-          leave-active-class="title-out-active"
-        >
-          <h4 v-if="visible">Companies I have worked with</h4>
-        </transition>
+
+        <h4>Companies I have worked with</h4>
+
         <div class="about--jobs flex flex--around">
           <a
             class="about--job flex flex--vcenter flex--center"

@@ -41,9 +41,22 @@ export default {
             teaser: "/imgs/projects/plista-website--teaser@2x.png",
             details: [
               "/imgs/projects/plista-website--slide-01.jpg",
-              "/imgs/projects/plista-website--slide-01.jpg",
-              "/imgs/projects/plista-website--slide-01.jpg"
+              "/imgs/projects/plista-website--slide-02.jpg",
+              "/imgs/projects/plista-website--slide-03.jpg",
+              "/imgs/projects/plista-website--slide-04.jpg"
             ]
+          }
+        },
+        {
+          title: "Aufbaufuchs Website",
+          slug: "aufbaufuchs",
+          description: "Creating a Single Page Application",
+          active: false,
+          link: "http://www.aufbaufuchs.de",
+          tags: ["html", "css", "js", "ps"],
+          imgs: {
+            teaser: "/imgs/projects/aufbaufuchs--teaser@2x.png",
+            details: ["/imgs/projects/aufbaufuchs--slide-01.jpg"]
           }
         },
         {
@@ -51,14 +64,11 @@ export default {
           slug: "plista-showroom",
           description: "Developing a custom WordPress Theme",
           active: false,
+          link: "http://showroom.plista.com",
           tags: ["wp", "html", "css", "js"],
           imgs: {
             teaser: "/imgs/projects/plista-showroom--teaser@2x.png",
-            details: [
-              "/imgs/projects/plista-website--slide-01.jpg",
-              "/imgs/projects/plista-website--slide-01.jpg",
-              "/imgs/projects/plista-website--slide-01.jpg"
-            ]
+            details: ["/imgs/projects/plista-showroom--slide-01.jpg"]
           }
         }
       ],

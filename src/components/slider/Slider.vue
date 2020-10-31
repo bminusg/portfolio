@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <div class="slider--content-area flex flex--vcenter">
+    <div class="slider--content-area flex">
       <Slider-Content
         v-for="project in projects"
         :key="project.slug"

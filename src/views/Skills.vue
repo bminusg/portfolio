@@ -107,61 +107,56 @@ export default {
             value: 95
           },
           {
-            title: "Illustrator",
-            type: "ai",
-            value: 85
-          },
-          {
             title: "Adobe XD",
             type: "xd",
             value: 90
           },
           {
+            title: "Illustrator",
+            type: "ai",
+            value: 85
+          },
+          {
             title: "After Effects",
             type: "ae",
             value: 65
-          },
-          {
-            title: "InDesign",
-            type: "id",
-            value: 90
           }
         ],
         code: [
           {
             title: "HTML 5",
             type: "html",
-            value: 98
+            value: 95
           },
           {
             title: "CSS 3",
             type: "css",
-            value: 95
+            value: 90
           },
           {
             title: "Less",
             type: "less",
-            value: 95
-          },
-          {
-            title: "Vanilla JS",
-            type: "js",
-            value: 80
-          },
-          {
-            title: "Vue JS",
-            type: "vue",
-            value: 85
-          },
-          {
-            title: "Node JS",
-            type: "node",
-            value: 70
+            value: 90
           },
           {
             title: "WordPress",
             type: "wp",
-            value: 90
+            value: 80
+          },
+          {
+            title: "Vanilla JS",
+            type: "js",
+            value: 75
+          },
+          {
+            title: "Vue JS",
+            type: "vue",
+            value: 70
+          },
+          {
+            title: "Node JS",
+            type: "node",
+            value: 60
           }
         ]
       }
@@ -246,7 +241,7 @@ export default {
 
       @media screen and (orientation: portrait) {
         background-color: #2b2b2b;
-        border-radius: 6px 0 0 6px;
+        border-radius: 6px;
         justify-content: center;
 
         &.is--active {
@@ -272,12 +267,12 @@ export default {
       position: relative;
 
       h4 {
-        margin: 20px 0;
+        margin: 10px 0;
       }
 
       @media screen and (orientation: portrait) {
         background-color: #2b2b2b;
-        border-radius: 0 6px 6px 0;
+        border-radius: 6px;
         justify-content: center;
 
         &.is--active {

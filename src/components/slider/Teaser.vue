@@ -2,7 +2,7 @@
   <div
     class="slider--teaser flex flex--center flex--vcenter"
     :class="{ 'is--active': project.active }"
-    v-on:click="test"
+    v-on:click="expand"
   >
     <img :src="project.imgs.teaser" :alt="project.title" />
   </div>
@@ -13,7 +13,7 @@ export default {
   name: "Teaser",
   props: ["project"],
   methods: {
-    test: function() {
+    expand: function() {
       this.$root.$emit("expand", this.project);
     }
   }

@@ -13,7 +13,7 @@
             "Teaser"
             "Controls"
             "Content";
-        grid-template-rows: 1fr 60px 1fr;
+        grid-template-rows: 45vh 60px 45vh;
     }
 
     // CONTENT AREA
@@ -25,11 +25,20 @@
         &-area {
             grid-area: Content;
             position: relative;
+
+            @media screen and (orientation:landscape) {
+                align-items: center;
+            }
         }
 
         &-title {
-            margin: 0 0 40px 0;
             padding: 0 0 20px 0;
+
+            @media screen and (orientation:portrait) {
+                h3 {
+                    font-size: 1.3rem;
+                }
+            }
         }
 
         &-copy {
