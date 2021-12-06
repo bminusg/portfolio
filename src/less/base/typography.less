@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Choplin-ExtraBold";
+  src: local("Choplin-ExtraBold"),
+    url("../../fonts/choplin/2B3C23_7_0.ttf") format("truetype");
+}
+
+body {
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+h1 {
+  font-family: "Choplin-ExtraBold";
+  font-weight: normal;
+  font-size: @cluster;
+
+  @media screen and (max-width: @breakpoint-s) {
+    font-size: @cluster / 4;
+  }
+}
+
+h2 {
+  font-family: "Choplin-ExtraBold";
+  font-weight: normal;
+  font-size: @cluster / 1.5;
+  color: @color-primary-darker;
+  text-transform: uppercase;
+
+  @media screen and (max-width: @breakpoint-s) {
+    font-size: @cluster / 5;
+  }
+}

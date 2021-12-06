@@ -1,24 +1,8 @@
-# bminusg
+# Frontend Design Template
 
-## Project setup
-```
-npm install
-```
+## NPM Scripts
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- `npm install` Project setup
+- `npm run serve` Compiles and hot-reloads for development
+- `npm run build` Compiles and minifies for production
+- `npm run lint` Lints and fixes files
