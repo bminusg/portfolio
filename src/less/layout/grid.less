@@ -2,13 +2,12 @@
 
 .grid {
     position: relative;
-    max-width: 1180px;
-    margin: 0 auto;
+    width: 100%;
     display: grid;
-    gap: 20px;
+    gap: @cluster / 2;
     grid-template-columns: repeat(12, @cluster);
     grid-template-areas: "col-1 col-2 col-3 col-4 col-5 col-6 col-7 col-8 col-9 col-10 col-11 col-12";
-    padding:0 @cluster / 2;
+
 
     &[data-grid="none"] {
         grid:none;
@@ -17,6 +16,13 @@
     &[data-grid="half"] {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "col-1 col-2";
+
+        @media screen and (max-width: @breakpoint-m) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, auto);
+            grid-template-areas: "col-1" "col-2";
+        }
+
     }
 
     @media screen and (max-width: 1180px) {

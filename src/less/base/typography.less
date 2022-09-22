@@ -1,21 +1,28 @@
 @font-face {
   font-family: "Choplin-ExtraBold";
   src: local("Choplin-ExtraBold"),
-    url("../../fonts/choplin/2B3C23_7_0.ttf") format("truetype");
+    url("~@/assets/fonts/choplin/2B3C23_7_0.ttf") format("truetype");
 }
 
 body {
-  font-size: 16px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 h1 {
   font-family: "Choplin-ExtraBold";
   font-weight: normal;
   font-size: @cluster;
+  text-transform: uppercase;
+  line-height: 1;
+
+  @media screen and (max-width: @breakpoint-l) {
+    font-size: @cluster / 1.4;
+  }
 
   @media screen and (max-width: @breakpoint-s) {
-    font-size: @cluster / 4;
+    font-size: @cluster / 1.9;
   }
 }
 
@@ -23,10 +30,38 @@ h2 {
   font-family: "Choplin-ExtraBold";
   font-weight: normal;
   font-size: @cluster / 1.5;
+  line-height: 1;
   color: @color-primary-darker;
   text-transform: uppercase;
+  text-align: center;
+  margin: @cluster / 4 0;
 
   @media screen and (max-width: @breakpoint-s) {
-    font-size: @cluster / 5;
+    font-size: @cluster / 2;
+  }
+}
+
+h3 {
+  font-family: "Choplin-ExtraBold";
+  font-weight: normal;
+  font-size: @cluster / 2;
+  text-transform: uppercase;
+  margin: @cluster / 8 0;
+}
+
+h4 {
+  font-family: "Choplin-ExtraBold";
+  font-weight: normal;
+  font-size: @cluster / 4;
+  text-transform: uppercase;
+  color: @color-grey;
+  margin: @cluster / 8 0;
+}
+
+p {
+  line-height: 1.5;
+
+  &.small {
+    font-size: 12px;
   }
 }

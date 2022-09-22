@@ -3,6 +3,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  position: relative;
 }
 
 /* Remove default padding */
@@ -30,6 +31,7 @@ dd {
 }
 
 /* Set core body defaults */
+html,
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -48,15 +50,21 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
+a {
+  text-decoration: none;
+  color: @color-primary;
 }
 
 /* Natural flow and rhythm in articles by default */
 article > * + * {
   margin-top: 1em;
+}
+
+// IMAGE RESIZING
+img,
+svg {
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* Inherit fonts for inputs and buttons */
