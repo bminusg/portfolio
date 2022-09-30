@@ -1,6 +1,6 @@
 <template>
   <section id="projects" class="projects fullscreen">
-    <h2>Projects</h2>
+    <h2>{{ $t("projects.title") }}</h2>
     <div class="projects--teaser">
       <div class="projects--teaser-img__wrapper">
         <div
@@ -20,7 +20,9 @@
           class="projects--teaser-txt"
         >
           <h3 class="projects--teaser-txt__title">{{ project.title }}</h3>
-          <p class="projects--teaser-txt__desc">{{ project.description }}</p>
+          <p class="projects--teaser-txt__desc">
+            {{ $t(project.slug.toString()) }}
+          </p>
           <div class="projects--teaser-txt__footer">
             <div class="projects--teaser-tags">
               <div
@@ -34,7 +36,7 @@
             <div class="projects--teaser-cta" v-if="project.link">
               <Button
                 :href="project.link"
-                text="Show more"
+                :text="$t('projects.cta')"
                 target="_blank"
                 theme="secondary"
                 icon="external-link"
@@ -67,6 +69,27 @@
   </section>
 </template>
 
+<i18n>
+  {
+    "en": {
+      "plista_website": "Wireframe and Web Design drafts for a website relaunch.",
+      "aufbaufuchs": "Creating CI and Single Page Application.",
+      "pauleisenach": "Creating custom wordpress theme for an artist portfolio.",
+      "plista_showroom": "Developing a custom WordPress Theme.",
+      "tween_sass": "Tween.sass is a SASS single code-line mixin that delivers the possibility for chaining multiple tween components to one tween animation.",
+      "csm_2000": "The Creative Solution Manager 2000 provides a working environment for your Advertising Creatives on your local machine. This tool uses modern Frontend technologies to build lightweight Creatives and brings a library for reusable Features."
+    },
+    "de": {
+      "plista_website": "Wireframe und Web Design Entwürfe für einen Relaunch.",
+      "aufbaufuchs": "Marketing Entwicklung und Umsetzung der Landingpage.",
+      "pauleisenach": "Indivduelles Wordpress Theme für ein Künstler Portfolio.",
+      "plista_showroom": "Indivduelles Wordpress Theme für einen Showroom.",
+      "tween_sass": "Tween.sass ist ein Mixin, dass die Möglichkeit bietet einzelne Animationen zu einem Tween zu verketten mit nur einer Zeile.",
+      "csm_2000": "Der Creative Solution Manager 2000 bietet eine lokale Entwicklungsumgebung und eine Feature Bibliothek um Werbemittel zu entwickeln."
+    }
+  }
+  </i18n>
+
 <script lang="ts">
 import Icon from "@/components/Icon.vue";
 import Button from "@/components/ui/Button.vue";
@@ -91,7 +114,7 @@ export default {
         {
           id: "6873185a-82c7-4505-a388-3d8c4ff575da",
           title: "plista Website",
-          slug: "plista-website",
+          slug: "plista_website",
           description: "Wireframe and Web Design drafts for a website relaunch",
           tags: ["xd", "ps"],
           imgs: {
@@ -110,7 +133,7 @@ export default {
           slug: "aufbaufuchs",
           description: "Creating CI and Single Page Application",
           link: "http://www.aufbaufuchs.de",
-          tags: ["html", "css", "js", "ps"],
+          tags: ["js", "ps", "html", "css"],
           imgs: {
             teaser: "teaser--aufbaufuchs@2x.png",
             details: ["/imgs/projects/aufbaufuchs--slide-01.jpg"],
@@ -120,8 +143,6 @@ export default {
           id: "446c04a2-4769-4da2-9be2-22b3cddd66b7",
           title: "Paul Eisenach Website",
           slug: "pauleisenach",
-          description:
-            "Creating custom wordpress theme for an artist portfolio",
           link: "http://paul-eisenach.com/",
           tags: ["wordpress", "css", "js"],
           imgs: {
@@ -132,7 +153,7 @@ export default {
         {
           id: "96f0efa8-652b-41aa-acc2-33f3bf97d55d",
           title: "plista Showroom",
-          slug: "plista-showroom",
+          slug: "plista_showroom",
           description: "Developing a custom WordPress Theme",
           link: "http://showroom.plista.com/advertiser",
           tags: ["wordpress", "html", "css", "js"],
@@ -144,7 +165,7 @@ export default {
         {
           id: "2d0609de-4175-4943-8c84-f2ce80fdbc42",
           title: "tween.sass",
-          slug: "tween-sass",
+          slug: "tween_sass",
           description:
             "tween-sass is a SASS single code-line mixin that delivers the possibility for chaining multiple tween components to one tween animation",
           link: "http://projects.bminusg.de/tween-sass/",
@@ -157,7 +178,7 @@ export default {
         {
           id: "242d0717-ab74-417b-b25a-9634b4285e9e",
           title: "Creative Solution Manager 2000",
-          slug: "csm-2000",
+          slug: "csm_2000",
           description:
             "The Creative Solution Manager 2000 provides a working environment for your Advertising Creatives on your local machine. This tool uses modern Frontend technologies to build lightweight Creatives and brings a library for reusable Features.",
           link: "https://github.com/bminusg/csm-2000",

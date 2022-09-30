@@ -2,7 +2,7 @@
 
 ## To Do's
 
-[ ] integrate vue i18n
+[x] integrate vue i18n
 [ ] serve images in next-gen formats
 [ ] Image elements do not have explicit width and height
 [ ] Ensure text remains visible during webfont load - https://web.dev/font-display/

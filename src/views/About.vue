@@ -1,22 +1,12 @@
 <template>
   <section id="about" class="about flex flex--center">
     <div class="container about--container">
-      <h2>Growing with my tasks</h2>
+      <h2>{{ $t("about.title") }}</h2>
 
       <div class="grid" data-grid="half">
         <div class="about--txt">
-          <h4>About</h4>
-          <p>
-            Cheers mate. My name is Benjamin Gebauer and I am passionate about
-            creating web applications, interactive creatives and creating tools
-            that make live easier. I gained expierences as a UI/UX/Web Designer
-            and Frontend/Creative Developer. Since 2010 I am creating Web
-            Designs for different employers. Advertising was the most field of
-            application. Adapting existing key visuals into an advertising
-            campaign frame and creating pitch visuals was my daily business.
-            After 6 years of improving visual skills, it was time for new quests
-            and since then I am starting my code challenges.
-          </p>
+          <h4>{{ $t("about.about") }}</h4>
+          <p>{{ $t("about.me") }}</p>
         </div>
 
         <div class="about--skills">

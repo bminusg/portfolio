@@ -25,19 +25,19 @@
 
     <div class="home--title flex flex--center">
       <div class="home--title-headlines">
-        <h1>Hey, I am</h1>
+        <h1>{{ $t("home.title") }}</h1>
         <h1 v-html="job" class="home--title-jobs"></h1>
       </div>
       <div class="home--title-buttons flex flex--middle">
         <Button
           href="#about"
-          text="About me"
+          :text="$t('about.about')"
           target="_self"
           theme="primary"
         ></Button>
         <Button
           href="#projects"
-          text="Projects"
+          :text="$t('projects.title')"
           target="_self"
           theme="primary-ghost light"
         ></Button>

@@ -1,17 +1,10 @@
 <template>
   <section id="contact" class="contact flex flex--center">
     <div class="container">
-      <h2>Lets work together</h2>
-
+      <h2>{{ $t("contact.title") }}</h2>
       <div class="grid contact--grid" data-grid="half">
         <div class="contact--txt">
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet.
-          </p>
+          <p>{{ $t("contact.text") }}</p>
 
           <div class="contact--links">
             <h4>Email</h4>
@@ -34,7 +27,7 @@
           </div>
 
           <div class="contact--links">
-            <h4>Follow me</h4>
+            <h4>{{ $t("contact.followme") }}</h4>
             <ul class="contact--links-list">
               <li class="contact--links-list__item flex">
                 <i class="icon">
