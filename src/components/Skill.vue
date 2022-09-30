@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Logo from "@/components/Logo.vue";
+import Logo from "@/components/Icon.vue";
 
 export default Vue.extend({
   name: "Skill",

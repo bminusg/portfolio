@@ -3,8 +3,14 @@
     class="logo--svg"
     xmlns="http://www.w3.org/2000/svg"
     :viewBox="selectedBrand.viewBox"
+    :style="selectedBrand.style"
   >
-    <path v-for="path in selectedBrand.paths" :key="path.id" :d="path"></path>
+    <path
+      v-for="path in selectedBrand.paths"
+      :key="path.id"
+      :d="path"
+      :fill="fill"
+    ></path>
   </svg>
 </template>
 
@@ -18,7 +24,7 @@ interface BrandItem {
 }
 
 export default Vue.extend({
-  props: ["brand"],
+  props: ["brand", "fill"],
   computed: {
     selectedBrand() {
       const brand = this.brands.find(
@@ -149,6 +155,22 @@ export default Vue.extend({
           viewBox: "0 0 40 40",
           paths: [
             "M20 0C8.97 0 0 8.97 0 20s8.97 20 20 20 20-8.97 20-20S31.03 0 20 0ZM2.02 20c0-2.61.56-5.08 1.56-7.32l8.58 23.5C6.16 33.27 2.03 27.11 2.03 20ZM20 37.98c-1.76 0-3.47-.26-5.08-.73l5.4-15.68 5.53 15.14c.04.09.08.17.13.25-1.87.66-3.88 1.02-5.97 1.02Zm2.48-26.41c1.08-.06 2.06-.17 2.06-.17.97-.11.85-1.54-.11-1.48 0 0-2.91.23-4.79.23-1.77 0-4.74-.23-4.74-.23-.97-.06-1.08 1.42-.11 1.48 0 0 .92.11 1.89.17l2.8 7.68-3.94 11.8-6.56-19.48c1.08-.06 2.06-.17 2.06-.17.97-.11.85-1.54-.12-1.48 0 0-2.91.23-4.79.23-.34 0-.74 0-1.16-.02C8.19 5.24 13.72 2.02 20 2.02c4.68 0 8.94 1.79 12.14 4.72-.08 0-.15-.01-.23-.01-1.77 0-3.02 1.54-3.02 3.19 0 1.48.86 2.74 1.77 4.22.68 1.2 1.48 2.74 1.48 4.96 0 1.54-.59 3.32-1.37 5.81l-1.79 5.99-6.5-19.33Zm13.3-.2c1.4 2.56 2.2 5.5 2.2 8.63 0 6.63-3.6 12.43-8.94 15.54l5.49-15.88c1.03-2.57 1.37-4.62 1.37-6.44 0-.66-.04-1.28-.12-1.85Z",
+          ],
+        },
+        {
+          slug: "arrow-left",
+          viewBox: "0 0 16 16",
+          style:
+            "fill:none;stroke:#77cca4;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px",
+          paths: ["M15 8H1M8 15 1 8l7-7"],
+        },
+        {
+          slug: "external-link",
+          viewBox: "0 0 20 20",
+          style:
+            " fill: none;  stroke: #77cca4;  stroke-linecap: round;  stroke-linejoin: round;  stroke-width: 2px;",
+          paths: [
+            "M16 11v6c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h6M13 1h6v6M8 12 19 1",
           ],
         },
       ] as BrandItem[],

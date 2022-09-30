@@ -1,4 +1,16 @@
-# Frontend Design Template
+# Portfolio SPA
+
+## To Do's
+
+[ ] integrate vue i18n
+[ ] serve images in next-gen formats
+[ ] Image elements do not have explicit width and height
+[ ] Ensure text remains visible during webfont load - https://web.dev/font-display/
+[ ] Avoid enormous network payloads
+[ ] preloader
+[ ] headline section animation
+[ ] tech stack icon animation
+[ ] bugfix "no overload matches this call"
 
 ## NPM Scripts
 

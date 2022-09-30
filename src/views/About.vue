@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="about fullscreen flex flex--center">
+  <section id="about" class="about flex flex--center">
     <div class="container about--container">
       <h2>Growing with my tasks</h2>
 
@@ -46,7 +46,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Tabs from "@/components/ui/Tabs.vue";
-import Skill from "./modules/Skill.vue";
+import Skill from "@/components/Skill.vue";
 
 export default Vue.extend({
   name: "About",

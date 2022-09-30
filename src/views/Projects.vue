@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="projects fullscreen">
     <h2>Projects</h2>
-    <div class="projects--teaser grid" data-grid="half">
+    <div class="projects--teaser">
       <div class="projects--teaser-img__wrapper">
         <div
           v-for="project in projects"
@@ -28,34 +28,53 @@
                 :key="tag"
                 class="projects--teaser-tags__item"
               >
-                <Logo :brand="tag"></Logo>
+                <Icon :brand="tag" :fill="'rgb(119, 204, 164)'"></Icon>
               </div>
             </div>
             <div class="projects--teaser-cta" v-if="project.link">
-              {{ project.link }}
+              <Button
+                :href="project.link"
+                text="Show more"
+                target="_blank"
+                theme="secondary"
+                icon="external-link"
+              ></Button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="projects--nav">
-      <div @click="slidePrev()" class="projects--nav-trigger flex flex--middle">
-        Previous
-      </div>
-      <div @click="slideNext()" class="projects--nav-trigger flex flex--middle">
-        next
+      <div class="projects--nav">
+        <div
+          @click="slidePrev()"
+          class="projects--nav-trigger flex flex--middle"
+        >
+          <Icon
+            brand="arrow-left"
+            class="projects--nav-icon projects--nav-icon__prev"
+          ></Icon>
+        </div>
+        <div
+          @click="slideNext()"
+          class="projects--nav-trigger flex flex--middle"
+        >
+          <Icon
+            brand="arrow-left"
+            class="projects--nav-icon projects--nav-icon__next"
+          ></Icon>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Logo from "@/components/Logo.vue";
+import Icon from "@/components/Icon.vue";
+import Button from "@/components/ui/Button.vue";
 
 export default {
   name: "Projects",
   props: ["isVisible"],
-  components: { Logo },
+  components: { Icon, Button },
   computed: {
     items() {
       return document.querySelectorAll(".projects--teaser-img");
@@ -93,7 +112,7 @@ export default {
           link: "http://www.aufbaufuchs.de",
           tags: ["html", "css", "js", "ps"],
           imgs: {
-            teaser: "teaser--plista-website@2x.png",
+            teaser: "teaser--aufbaufuchs@2x.png",
             details: ["/imgs/projects/aufbaufuchs--slide-01.jpg"],
           },
         },
@@ -118,7 +137,7 @@ export default {
           link: "http://showroom.plista.com/advertiser",
           tags: ["wordpress", "html", "css", "js"],
           imgs: {
-            teaser: "teaser--plista-website@2x.png",
+            teaser: "teaser--plista-showroom@2x.png",
             details: [],
           },
         },
@@ -131,7 +150,7 @@ export default {
           link: "http://projects.bminusg.de/tween-sass/",
           tags: ["sass"],
           imgs: {
-            teaser: "teaser--plista-website@2x.png",
+            teaser: "teaser--tweensass@2x.png",
             details: [],
           },
         },
@@ -144,7 +163,7 @@ export default {
           link: "https://github.com/bminusg/csm-2000",
           tags: ["js", "webpack"],
           imgs: {
-            teaser: "teaser--plista-website@2x.png",
+            teaser: "teaser--csm@2x.png",
             details: [],
           },
         },
@@ -216,10 +235,26 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: @cluster 0;
+
+  @media screen and (max-width: 580px) {
+    padding: @cluster / 4 0;
+  }
 
   &--teaser {
     width: 100%;
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr @cluster;
+    grid-template-areas: "project--img project--txt" "project--nav project--nav";
+
+    @media screen and (max-width: 580px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 2fr @cluster / 2;
+      grid-template-areas: "project--img" "project--txt" "project--nav";
+      gap: @cluster / 10;
+    }
 
     &-img {
       position: absolute;
@@ -234,9 +269,12 @@ export default {
       align-items: center;
       flex-wrap: wrap;
 
+      &__wrapper {
+        grid-area: project--img;
+      }
+
       &__inline {
         flex: 0 1 580px;
-        //max-width: 580px;
       }
 
       &.slide--in-left {
@@ -286,28 +324,34 @@ export default {
 
       &__title {
         color: @color-primary;
-        // background-image: linear-gradient(
-        //   to right,
-        //   @color-primary,
-        //   @color-primary-dark
-        // );
-        // background-clip: text;
-        // -webkit-text-fill-color: transparent;
       }
 
       &__desc {
         margin: 0 0 @cluster / 2 0;
+
+        @media screen and (max-width: 580px) {
+          margin: 0 0 @cluster / 4 0;
+        }
       }
 
       &__wrapper {
         display: flex;
         align-items: center;
+        grid-area: project--txt;
+
+        @media screen and (max-width: 580px) {
+          align-items: flex-start;
+        }
       }
 
       &__footer {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: @cluster / 2;
+
+        @media screen and (max-width: 580px) {
+          gap: @cluster / 6;
+        }
       }
 
       &.is--active {
@@ -320,9 +364,14 @@ export default {
       align-items: center;
 
       &__item {
-        width: 40px;
-        height: 40px;
+        width: @cluster / 2;
+        height: @cluster / 2;
         margin: 0 @cluster / 12;
+
+        @media screen and (max-width: 580px) {
+          width: @cluster / 4;
+          height: @cluster / 4;
+        }
 
         svg {
           max-height: 40px;
@@ -336,20 +385,31 @@ export default {
   }
 
   &--nav {
-    position: absolute;
     width: @cluster * 2;
-    height: @cluster;
+    height: 100%;
     left: calc(50% - @cluster);
-    border: @cluster / 20 solid black;
-    bottom: @cluster / 2;
+    border: 1px solid rgba(@color-primary, 0.5);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-area: project--nav;
 
     &-trigger {
       cursor: pointer;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      &:first-child {
+        border-right: 1px solid rgba(@color-primary, 0.5);
+      }
+    }
+
+    &-icon {
+      flex: 0 1 12px;
+
+      &__next {
+        transform: rotate(180deg);
       }
     }
   }

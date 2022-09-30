@@ -28,7 +28,7 @@
                     />
                   </svg>
                 </i>
-                <a href="mailto:">benny.gebauer [at] outlook.de</a>
+                <a :href="'mailto:' + mail">benny.gebauer [at] outlook.de</a>
               </li>
             </ul>
           </div>
@@ -91,6 +91,17 @@
 export default {
   name: "Contact",
   props: ["isVisible"],
+  data() {
+    return {
+      mail: "",
+    };
+  },
+  watch: {
+    isVisible(value: boolean) {
+      if (value) this.mail = "benny.gebauer@bminusg.de";
+      else this.mail = "";
+    },
+  },
 };
 </script>
 

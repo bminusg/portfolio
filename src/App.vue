@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Home from "@/views/Home.vue";
-import About from "@/views/About/index.vue";
+import About from "@/views/About.vue";
 import Projects from "@/views/Projects.vue";
 import Contact from "@/views/Contact.vue";
 
@@ -40,8 +40,6 @@ export default Vue.extend({
   methods: {
     intersectionCallback(entries: IntersectionObserverEntry[]) {
       entries.forEach((entry) => {
-        console.log(entry.target.id, "is intersecting ", entry.isIntersecting);
-
         this.isVisible[entry.target.id] = entry.isIntersecting;
       });
     },

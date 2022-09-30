@@ -29,10 +29,18 @@
         <h1 v-html="job" class="home--title-jobs"></h1>
       </div>
       <div class="home--title-buttons flex flex--middle">
-        <a class="btn btn--primary" href="#about" target="_self">
-          <span class="btn--primary-icon"></span>
-          <span class="btn--primary-txt">Tech Stack</span>
-        </a>
+        <Button
+          href="#about"
+          text="About me"
+          target="_self"
+          theme="primary"
+        ></Button>
+        <Button
+          href="#projects"
+          text="Projects"
+          target="_self"
+          theme="primary-ghost light"
+        ></Button>
       </div>
     </div>
   </section>
@@ -40,6 +48,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import Button from "@/components/ui/Button.vue";
 
 interface State {
   workstationTop: string;
@@ -69,7 +78,6 @@ export default Vue.extend({
     defineJob() {
       this.jobIDX++;
       if (this.jobIDX > this.jobs.length - 1) this.jobIDX = 0;
-
       const job = this.jobs[this.jobIDX];
       setTimeout(this.setJobIntervall(job), 1000);
     },
@@ -77,22 +85,18 @@ export default Vue.extend({
       //this.job = "&nbsp;";
       const maxStringLength = job.length;
       let IDX = -1;
-
       const loop = setInterval(() => {
         IDX++;
-
         // PREVENT JUMPY EMPTY SPACES
         if (job[IDX] === " ") {
           this.job += " ";
           IDX++;
         }
-
         if (IDX >= maxStringLength) {
           clearInterval(loop);
           this.resetJob();
           return;
         }
-
         this.job = IDX === 0 ? job[IDX] : this.job + job[IDX];
       }, 100);
     },
@@ -101,20 +105,17 @@ export default Vue.extend({
         let IDX = this.job.length;
         const loop = setInterval(() => {
           IDX--;
-
           // PREVENT JUMPY EMPTY SPACES
           if (this.job[IDX] === " ") {
             this.job = this.job.substring(-1, IDX);
             IDX--;
           }
-
           if (IDX <= 0) {
             clearInterval(loop);
             this.job = "&nbsp;";
             setTimeout(this.defineJob, 500);
             return;
           }
-
           this.job = this.job.substring(-1, IDX);
         }, 50);
       }, 3000);
@@ -125,18 +126,16 @@ export default Vue.extend({
   },
   watch: {
     isVisible(value: boolean) {
-      console.log("WATCH", value);
       if (value) return (this.workstationTop = "auto");
-
       const workstation = document.querySelector(
         ".home--workstation"
       ) as HTMLElement | null;
-
       const offsetTop: number = workstation ? workstation.offsetTop : 0;
       //this.workstationTop = "calc(100% - " + offsetTop + "px)";
       this.workstationTop = "50vh";
     },
   },
+  components: { Button },
 });
 </script>
 
@@ -145,30 +144,16 @@ export default Vue.extend({
 
 .home {
   margin-bottom: calc(var(--viewport-height) / 2);
-  background-size: 653px auto, 100% 100%;
+  background-size: 1180px auto, 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url("~@/assets/home--fx@2x.png"),
-    linear-gradient(180deg, @color-primary, @color-primary-dark 75%);
+    linear-gradient(180deg, @color-primary, @color-primary-dark);
 
-  /*
-  background-image: linear-gradient(
-      180deg,
-      @color-primary,
-      @color-primary-dark 80%,
-      @color-grey-light 80%
-    ),
-    url("~@/assets/home--fx@2x.png");
-
-  @media screen and (orientation: portrait) {
-    background-image: linear-gradient(
-      180deg,
-      @color-primary,
-      @color-primary-dark 90%,
-      @color-grey-light 90%
-    );
+  @media screen and (max-width: 1180px) {
+    background-size: 95% auto, 100% 100%;
+    background-position: center 75%, center center;
   }
-  */
 
   &::before {
     content: "";
@@ -178,10 +163,6 @@ export default Vue.extend({
     height: @cluster * 2;
     left: 0;
     bottom: 0;
-
-    @media screen and (orientation: portrait) {
-      //height: 30%;
-    }
   }
 
   &--title {
@@ -267,7 +248,7 @@ export default Vue.extend({
       background-image: url("~@/assets/workstation--code@2x.jpg");
       background-repeat: repeat-y;
       background-size: 100% auto;
-      background-position: 0 var(--scroll-x);
+      background-position: 0 calc(var(--scroll-x) * -1);
       width: 27%;
       height: 38.63%;
       left: 36.67%;
