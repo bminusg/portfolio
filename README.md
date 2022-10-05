@@ -2,11 +2,7 @@
 
 ## To Do's
 
-[x] integrate vue i18n
-[ ] serve images in next-gen formats
-[ ] Image elements do not have explicit width and height
-[ ] Ensure text remains visible during webfont load - https://web.dev/font-display/
-[ ] Avoid enormous network payloads
+[ ] Avoid enormous network payloads using code-splitting
 [ ] preloader
 [ ] headline section animation
 [ ] tech stack icon animation

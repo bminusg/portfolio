@@ -9,7 +9,24 @@
           class="projects--teaser-img"
         >
           <div class="projects--teaser-img__inline">
-            <img :src="getImgUrl(project.imgs.teaser)" :alt="project.title" />
+            <picture>
+              <source
+                :srcset="getImgUrl(project.imgs.teaser.webp)"
+                type="image/webp"
+              />
+              <source
+                :srcset="getImgUrl(project.imgs.teaser.png)"
+                type="image/png"
+              />
+              <img
+                :src="getImgUrl(project.imgs.teaser.webp)"
+                :width="project.imgs.teaser.width"
+                :height="project.imgs.teaser.height"
+                :alt="project.title"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </div>
@@ -84,7 +101,7 @@
       "aufbaufuchs": "Marketing Entwicklung und Umsetzung der Landingpage.",
       "pauleisenach": "Indivduelles Wordpress Theme für ein Künstler Portfolio.",
       "plista_showroom": "Indivduelles Wordpress Theme für einen Showroom.",
-      "tween_sass": "Tween.sass ist ein Mixin, dass die Möglichkeit bietet einzelne Animationen zu einem Tween zu verketten mit nur einer Zeile.",
+      "tween_sass": "Tween.sass ist ein Mixin, dass die Möglichkeit bietet einzelne Animationen mit nur einer Zeile zu einem Tween zu verketten.",
       "csm_2000": "Der Creative Solution Manager 2000 bietet eine lokale Entwicklungsumgebung und eine Feature Bibliothek um Werbemittel zu entwickeln."
     }
   }
@@ -118,13 +135,12 @@ export default {
           description: "Wireframe and Web Design drafts for a website relaunch",
           tags: ["xd", "ps"],
           imgs: {
-            teaser: "teaser--plista-website@2x.png",
-            details: [
-              "/imgs/projects/plista-website--slide-01.jpg",
-              "/imgs/projects/plista-website--slide-02.jpg",
-              "/imgs/projects/plista-website--slide-03.jpg",
-              "/imgs/projects/plista-website--slide-04.jpg",
-            ],
+            teaser: {
+              webp: "teaser--plista-website@2x.webp",
+              png: "teaser--plista-website@2x.png",
+              width: 587,
+              height: 398,
+            },
           },
         },
         {
@@ -135,8 +151,12 @@ export default {
           link: "http://www.aufbaufuchs.de",
           tags: ["js", "ps", "html", "css"],
           imgs: {
-            teaser: "teaser--aufbaufuchs@2x.png",
-            details: ["/imgs/projects/aufbaufuchs--slide-01.jpg"],
+            teaser: {
+              webp: "teaser--aufbaufuchs@2x.webp",
+              png: "teaser--aufbaufuchs@2x.png",
+              width: 586,
+              height: 325,
+            },
           },
         },
         {
@@ -146,8 +166,12 @@ export default {
           link: "http://paul-eisenach.com/",
           tags: ["wordpress", "css", "js"],
           imgs: {
-            teaser: "teaser--pauleisenach@2x.png",
-            details: [],
+            teaser: {
+              webp: "teaser--pauleisenach@2x.webp",
+              png: "teaser--pauleisenach@2x.png",
+              width: 532,
+              height: 417,
+            },
           },
         },
         {
@@ -158,8 +182,12 @@ export default {
           link: "http://showroom.plista.com/advertiser",
           tags: ["wordpress", "html", "css", "js"],
           imgs: {
-            teaser: "teaser--plista-showroom@2x.png",
-            details: [],
+            teaser: {
+              webp: "teaser--plista-showroom@2x.webp",
+              png: "teaser--plista-showroom@2x.png",
+              width: 521,
+              height: 423,
+            },
           },
         },
         {
@@ -171,8 +199,12 @@ export default {
           link: "http://projects.bminusg.de/tween-sass/",
           tags: ["sass"],
           imgs: {
-            teaser: "teaser--tweensass@2x.png",
-            details: [],
+            teaser: {
+              webp: "teaser--tweensass@2x.webp",
+              png: "teaser--tweensass@2x.png",
+              width: 532,
+              height: 314,
+            },
           },
         },
         {
@@ -184,8 +216,12 @@ export default {
           link: "https://github.com/bminusg/csm-2000",
           tags: ["js", "webpack"],
           imgs: {
-            teaser: "teaser--csm@2x.png",
-            details: [],
+            teaser: {
+              webp: "teaser--csm@2x.webp",
+              png: "teaser--csm@2x.png",
+              width: 562,
+              height: 409,
+            },
           },
         },
       ],

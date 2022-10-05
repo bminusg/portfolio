@@ -72,7 +72,18 @@
         </div>
         <div class="contact--img-wrapper flex flex--center">
           <div class="contact--img" :class="{ 'is--active': isVisible }">
-            <img src="@/assets/me@2x.png" alt="Portrait Benjamin Gebauer" />
+            <picture>
+              <source srcset="@/assets/me@2x.webp" type="image/webp" />
+              <source srcset="@/assets/me@2x.png" type="image/png" />
+              <img
+                src="@/assets/me@2x.webp"
+                width="380"
+                height="494"
+                alt="Portrait Benjamin Gebauer"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </div>

@@ -9,11 +9,13 @@
         <div class="home--workstation-overlay"></div>
         <div class="home--workstation-img">
           <picture>
-            <!--source srcset="@/assets/workstation.webp" type="image/webp" /-->
+            <source srcset="@/assets/workstation.webp" type="image/webp" />
             <source srcset="@/assets/workstation.png" type="image/png" />
             <img
-              src="@/assets/workstation.png"
+              src="@/assets/workstation.webp"
               alt="Workstation"
+              width="auto"
+              height="auto"
               loading="lazy"
               decoding="async"
             />
@@ -147,7 +149,10 @@ export default Vue.extend({
   background-size: 1180px auto, 100% 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url("~@/assets/home--fx@2x.png"),
+  background-image: image-set(
+      url("~@/assets/home--fx@2x.webp") type("image/webp"),
+      url("~@/assets/home--fx@2x.png") type("image/png")
+    ),
     linear-gradient(180deg, @color-primary, @color-primary-dark);
 
   @media screen and (max-width: 1180px) {
