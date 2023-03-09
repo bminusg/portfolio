@@ -92,71 +92,71 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "Contact",
-  props: ["isVisible"],
-  data() {
-    return {
-      mail: "",
-    };
-  },
-  watch: {
-    isVisible(value: boolean) {
-      if (value) this.mail = "benny.gebauer@bminusg.de";
-      else this.mail = "";
+  export default {
+    name: "Contact",
+    props: ["isVisible"],
+    data() {
+      return {
+        mail: "",
+      };
     },
-  },
-};
+    watch: {
+      isVisible(value: boolean) {
+        if (value) this.mail = "benny.gebauer@bminusg.de";
+        else this.mail = "";
+      },
+    },
+  };
 </script>
 
 <style lang="less" scoped>
-@import "~@/less/utils/variables.less";
+  @import "~@/less/utils/variables.less";
 
-.contact {
-  padding: @cluster 0;
+  .contact {
+    padding: @cluster 0;
 
-  &--grid {
-    margin: @cluster 0;
-  }
-
-  &--txt {
-    grid-area: col-1;
-
-    @media screen and (max-width: @breakpoint-m) {
-      grid-area: col-2;
-    }
-  }
-
-  &--img {
-    flex: 0 1 380px;
-    opacity: 0;
-    transform: matrix(0.9, 0, 0, 0.9, 0, 80);
-    transition: @transition-slide-in;
-
-    &.is--active {
-      opacity: 1;
-      transform: matrix(1, 0, 0, 1, 0, 0);
+    &--grid {
+      margin: @cluster 0;
     }
 
-    &-wrapper {
-      grid-area: col-2;
+    &--txt {
+      grid-area: col-1;
 
       @media screen and (max-width: @breakpoint-m) {
-        grid-area: col-1;
+        grid-area: col-2;
       }
     }
-  }
 
-  &--links {
-    &-list {
-      &__item {
-        margin: @cluster / 4 0;
-        .icon {
-          margin: 0 @cluster / 8 0 0;
-          fill: @color-grey-dark;
+    &--img {
+      flex: 0 1 380px;
+      opacity: 0;
+      transform: matrix(0.9, 0, 0, 0.9, 0, 80);
+      transition: @transition-slide-in;
+
+      &.is--active {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+      }
+
+      &-wrapper {
+        grid-area: col-2;
+
+        @media screen and (max-width: @breakpoint-m) {
+          grid-area: col-1;
+        }
+      }
+    }
+
+    &--links {
+      &-list {
+        &__item {
+          margin: calc(@cluster / 4) 0;
+          .icon {
+            margin: 0 calc(@cluster / 8) 0 0;
+            fill: @color-grey-dark;
+          }
         }
       }
     }
   }
-}
 </style>

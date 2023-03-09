@@ -17,90 +17,90 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Logo from "@/components/Icon.vue";
+  import Vue from "vue";
+  import Logo from "@/components/Icon.vue";
 
-export default Vue.extend({
-  name: "Skill",
-  props: ["item"],
-  components: { Logo },
-  data() {
-    return {
-      value: 0,
-    };
-  },
-  methods: {
-    countUp() {
-      const animationDuration = 600;
-      const frameDuration = 1000 / 60;
-      const totalFrames = Math.round(animationDuration / frameDuration);
-      const countTo = this.item.value;
-      const easeOutQuad = (t: number) => t * (2 - t);
-      let frame = 0;
-
-      const counter = setInterval(() => {
-        const progress = easeOutQuad(frame / totalFrames);
-        const currentCount = Math.round(countTo * progress);
-
-        frame++;
-
-        if (this.value !== currentCount) this.value = currentCount;
-        if (frame === totalFrames) clearInterval(counter);
-      }, frameDuration);
+  export default Vue.extend({
+    name: "Skill",
+    props: ["item"],
+    components: { Logo },
+    data() {
+      return {
+        value: 0,
+      };
     },
-  },
-  mounted() {
-    this.countUp();
-  },
-});
+    methods: {
+      countUp() {
+        const animationDuration = 600;
+        const frameDuration = 1000 / 60;
+        const totalFrames = Math.round(animationDuration / frameDuration);
+        const countTo = this.item.value;
+        const easeOutQuad = (t: number) => t * (2 - t);
+        let frame = 0;
+
+        const counter = setInterval(() => {
+          const progress = easeOutQuad(frame / totalFrames);
+          const currentCount = Math.round(countTo * progress);
+
+          frame++;
+
+          if (this.value !== currentCount) this.value = currentCount;
+          if (frame === totalFrames) clearInterval(counter);
+        }, frameDuration);
+      },
+    },
+    mounted() {
+      this.countUp();
+    },
+  });
 </script>
 
 <style lang="less">
-@import "~@/less/utils/variables.less";
+  @import "~@/less/utils/variables.less";
 
-.about {
-  &--skills {
-    &-item {
-      height: @cluster / 2;
-      display: grid;
-      grid-template-columns: @cluster / 2 auto @cluster;
-      gap: @cluster / 4;
-      align-items: center;
-      justify-items: center;
-      margin: 0 0 @cluster / 4 0;
-    }
-
-    &-logo {
-      width: @cluster / 2;
-
-      svg {
-        max-height: @cluster / 2;
-        fill: @color-grey-dark;
+  .about {
+    &--skills {
+      &-item {
+        height: calc(@cluster / 2);
+        display: grid;
+        grid-template-columns: calc(@cluster / 2) auto @cluster;
+        gap: calc(@cluster / 4);
+        align-items: center;
+        justify-items: center;
+        margin: 0 0 calc(@cluster / 4) 0;
       }
-    }
 
-    &-bar {
-      background-color: @color-grey;
-      width: 100%;
-      height: @cluster / 20;
-      border-radius: 4px;
-      overflow: hidden;
+      &-logo {
+        width: calc(@cluster / 2);
 
-      &__value {
-        background-color: @color-primary;
-        height: 100%;
+        svg {
+          max-height: calc(@cluster / 2);
+          fill: @color-grey-dark;
+        }
       }
-    }
 
-    &-value {
-      color: @color-grey-dark;
+      &-bar {
+        background-color: @color-grey;
+        width: 100%;
+        height: calc(@cluster / 20);
+        border-radius: 4px;
+        overflow: hidden;
 
-      &__countUp {
-        font-family: "Choplin-ExtraBold";
-        font-size: 24px;
-        margin-right: @cluster / 10;
+        &__value {
+          background-color: @color-primary;
+          height: 100%;
+        }
+      }
+
+      &-value {
+        color: @color-grey-dark;
+
+        &__countUp {
+          font-family: "Choplin-ExtraBold";
+          font-size: 24px;
+          margin-right: calc(@cluster / 10);
+        }
       }
     }
   }
-}
 </style>

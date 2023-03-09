@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
-import "@/less/app.less";
 import i18n from "./i18n";
+import "@/less/app.less";
 
 Vue.config.productionTip = false;
 

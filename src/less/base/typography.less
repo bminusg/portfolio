@@ -19,44 +19,44 @@ h1 {
   line-height: 1;
 
   @media screen and (max-width: @breakpoint-l) {
-    font-size: @cluster / 1.4;
+    font-size: calc(@cluster / 1.4);
   }
 
   @media screen and (max-width: @breakpoint-s) {
-    font-size: @cluster / 1.9;
+    font-size: calc(@cluster / 1.9);
   }
 }
 
 h2 {
   font-family: "Choplin-ExtraBold";
   font-weight: normal;
-  font-size: @cluster / 1.5;
+  font-size: calc(@cluster / 1.5);
   line-height: 1;
   color: @color-primary-darker;
   text-transform: uppercase;
   text-align: center;
-  margin: @cluster / 4 0;
+  margin: calc(@cluster / 4) 0;
 
   @media screen and (max-width: @breakpoint-s) {
-    font-size: @cluster / 2;
+    font-size: calc(@cluster / 2);
   }
 }
 
 h3 {
   font-family: "Choplin-ExtraBold";
   font-weight: normal;
-  font-size: @cluster / 2;
+  font-size: calc(@cluster / 2);
   text-transform: uppercase;
-  margin: @cluster / 8 0;
+  margin: calc(@cluster / 8) 0;
 }
 
 h4 {
   font-family: "Choplin-ExtraBold";
   font-weight: normal;
-  font-size: @cluster / 4;
+  font-size: calc(@cluster / 4);
   text-transform: uppercase;
   color: @color-grey;
-  margin: @cluster / 8 0;
+  margin: calc(@cluster / 8) 0;
 }
 
 p {
