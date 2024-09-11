@@ -1,0 +1,28 @@
+$cols: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+
+.grid
+    position: relative
+    width: 100%
+    display: grid
+    gap: var(--space-500)
+    grid-template-columns: repeat(12, var(--space-700))
+    grid-template-areas: "col-1 col-2 col-3 col-4 col-5 col-6 col-7 col-8 col-9 col-10 col-11 col-12"
+
+    &[data-grid="none"]
+        grid: none
+
+    &[data-grid="half"]
+        grid-template-columns: repeat(2, 1fr)
+        grid-template-areas: "col-1 col-2"
+
+        @media screen and (max-width: 1180px)
+            grid-template-columns: 1fr
+            grid-template-rows: repeat(2, auto)
+            grid-template-areas: "col-1" "col-2"
+
+    @media screen and (max-width: 1180px)
+        width: 100%
+
+    @each $value in $cols
+        .col-#{$value}
+            grid-area: col-#{$value}

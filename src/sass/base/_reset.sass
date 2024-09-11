@@ -22,6 +22,10 @@ ul[role="list"],
 ol[role="list"]
     list-style: none
 
+ul, li
+    margin: unset
+    padding: unset
+
 /* Set core root defaults */
 html:focus-within
     scroll-behavior: smooth
@@ -33,6 +37,10 @@ a:not([class])
 /* Remove anchor text decorations */
 a
     text-decoration: none
+    color: var(--color-primary)
+
+    &:active
+        color: var(--color-primary-700)
 
 /* Make images easier to work with */
 img,

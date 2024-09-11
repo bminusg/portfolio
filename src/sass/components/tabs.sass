@@ -1,0 +1,34 @@
+
+.tab
+    margin-bottom: var(--space-450)
+    position: relative
+
+    &--item
+        padding: var(--space-300)
+        height: var(--space-500)
+        align-items: center
+        color: var(--color-gray-400)
+        position: relative
+        font-size: var(--space-300)
+        font-family: "Choplin-Regular"
+
+        &::after
+            content: ""
+            background-color: var(--color-gray-200)
+            position: absolute
+            width: 100%
+            height: 1px
+            left: 0
+            bottom: 0
+
+        &:hover
+            cursor: pointer
+
+        &-active
+            color: var(--color-primary)
+
+            &::after
+                background-color: var(--color-primary)
+
+        span
+            text-transform: uppercase

@@ -1,0 +1,50 @@
+
+.aboutme
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &--container
+        opacity: 0
+
+        &.is--active
+            animation: slideIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards
+
+    &--skills
+        &-item
+            height: var(--space-400)
+            display: grid
+            grid-template-columns: var(--space-500) auto var(--space-500)
+            gap: var(--space-300)
+            align-items: center
+            justify-items: center
+            margin: 0 0 var(--space-350) 0
+
+        &-logo
+            width: var(--space-500)
+            height: 100%
+            align-items: center
+
+        svg
+            max-height: var(--space-400)
+            fill: var(--color-gray-700)
+            height: 100%
+
+        &-bar
+            background-color: var(--color-gray-200)
+            width: 100%
+            height: var(--space-100)
+            border-radius: 4px
+            overflow: hidden
+
+            &__value
+                background-color: var(--color-primary)
+                height: 100%
+
+        &-value
+            color: var(--color-gray-700)
+
+            &__countUp
+                font-family: "Choplin-ExtraBold"
+                font-size: 24px
+                margin-right: var(--space-200)

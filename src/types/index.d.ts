@@ -28,6 +28,7 @@ declare global {
   enum SkillSlug {
     vue = "vue",
     ts = "ts",
+    js = "js",
     vanilla = "vanilla",
     sass = "sass",
     react = "react",
@@ -36,6 +37,35 @@ declare global {
     ae = "ae",
     ps = "ps",
     ai = "ai",
+    xd = "xd",
     figma = "figma",
+    asana = "asana",
+    jira = "jira",
+    git = "git",
+    css = "css",
+    html = "html",
+    webpack = "webpack",
+    wordpress = "wordpress",
   }
+
+  enum BrandSlug {
+    xing = "xing",
+    linkedin = "linkedin",
+    soundcloud = "soundcloud",
+    github = "github",
+  }
+
+  enum IconSlug {
+    arrowLeft = "arrowLeft",
+    externalLink = "externalLink",
+    mail = "mail",
+  }
+
+  type IconSlugs =
+    | SkillSlug
+    | BrandSlug
+    | IconSlug
+    | keyof typeof BrandSlug
+    | keyof typeof IconSlug
+    | keyof typeof SkillSlug;
 }

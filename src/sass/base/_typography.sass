@@ -1,3 +1,13 @@
+@font-face
+    font-family: "Choplin-ExtraBold"
+    font-display: swap
+    src: local("Choplin-ExtraBold"), url("@/assets/fonts/choplin/2B3C23_7_0.ttf") format("truetype")
+
+@font-face
+    font-family: "Choplin-Regular"
+    font-display: swap
+    src: url("@/assets/fonts/choplin/2B3C23_3_0.ttf") format("truetype")
+
 body
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
     line-height: 1.5
@@ -6,3 +16,51 @@ body
     text-rendering: optimizeLegibility
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
+
+h1
+    font-family: "Choplin-ExtraBold"
+    font-weight: normal
+    font-size: var(--space-700)
+    text-transform: uppercase
+    line-height: 1
+
+    @media screen and (orientation: portrait)
+        font-size: var(--space-450)
+
+    // @media screen and (max-width: @breakpoint-l)
+    //     font-size: var(--space-450)
+
+    // @media screen and (max-width: @breakpoint-s)
+    //     font-size: var(--space-400)
+
+h2
+    font-family: "Choplin-ExtraBold"
+    font-weight: normal
+    font-size: var(--space-450)
+    line-height: 1
+    color: var(--color-gray-700)
+    text-transform: uppercase
+    text-align: center
+    margin: var(--space-500) 0
+
+h3
+    font-family: "Choplin-ExtraBold"
+    font-weight: normal
+    font-size: var(--space-400)
+    text-transform: uppercase
+    margin: var(--space-200) 0
+
+h4
+    font-family: "Choplin-Regular"
+    font-weight: normal
+    font-size: var(--space-300)
+    text-transform: uppercase
+    color: var(--color-gray-700)
+    margin: var(--space-450) 0
+
+p
+    line-height: 1.5
+    color: var(--color-gray-800)
+
+    &.small
+        font-size: var(--space-250)
