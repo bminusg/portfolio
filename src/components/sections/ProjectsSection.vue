@@ -122,13 +122,47 @@ interface Teasers {
 
 const projects: Project[] = [
   {
+    id: "f3822ec9-1bb4-4c66-a373-e24869044f81",
+    title: "AD glance",
+    slug: "adglance",
+    cta: "Demo Login",
+    description:
+      "AD glance ist ein Prototyp für eine Kampagnen Management Plattform. Die Idee ist eine Perfomance Marketing Kampagne vom Sales bis zum Reporting zu betreuen indem externe Dienste integriert und in ihrer Funktionaltät erweitert werden können.",
+    link: "https://adglance.vercel.app",
+    tags: ["nuxt", "ts", "sass"],
+    imgs: {
+      teaser: {
+        webp: "teaser--adglance@2x.webp",
+        png: "teaser--adglance@2x.png",
+        width: 532,
+        height: 314,
+      },
+    },
+  },
+  {
+    id: "942fe733-252a-494c-9918-2e3c292c4003",
+    title: "Showroom",
+    slug: "adshowroom",
+    description:
+      "Interner Showroom für die Erstellung und Archivierung von Ad Previews für verschiedene Publisher und Medien z.B. Rich Media, Native und DOOH.",
+    tags: ["vue", "wordpress", "sass"],
+    imgs: {
+      teaser: {
+        webp: "teaser--asr-showroom@2x.webp",
+        png: "teaser--asr-showroom@2x.png",
+        width: 532,
+        height: 314,
+      },
+    },
+  },
+  {
     id: "2d0609de-4175-4943-8c84-f2ce80fdbc42",
     title: "tween.sass",
     slug: "tween_sass",
     cta: "Mehr erfahren",
     description:
       "Tween.sass ist ein Mixin, dass die Möglichkeit bietet einzelne Animationen mit nur einer Zeile zu einem Tween zu verketten.",
-    link: "http://projects.bminusg.de/tween-sass/",
+    link: "https://projects.bminusg.de/tween-sass/",
     tags: ["sass"],
     imgs: {
       teaser: {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Lass schnacken</h2>
+    <h2>Let's work together</h2>
     <div class="grid contact--grid" data-grid="half">
       <div class="contact--txt">
         <p>
